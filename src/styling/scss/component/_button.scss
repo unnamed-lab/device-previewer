@@ -1,0 +1,17 @@
+@use '../custom' as *;
+
+.btn {
+    background-color: $primary;
+    color: $white;
+    font-size: var(--fs-default);
+    font-weight: 500;
+    letter-spacing: 1px;
+    border: none;
+    padding: 10px 12px;
+    cursor: pointer;
+
+    &:hover {
+        transition: all 500ms ease;
+        box-shadow: 1px 0px 8px 1px $secondary;
+    }
+}

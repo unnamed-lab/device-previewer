@@ -1,0 +1,112 @@
+@use "../custom" as *;
+@use "../component/mixins" as *;
+
+:root {
+  --font-family: "Poppins", Arial, Helvetica, sans-serif;
+  --fs-default: 16px;
+  --border-radius: 26px;
+  --border-radius-child: calc(var(--border-radius) - 10px);
+  font-weight: 400;
+  font-size: var(--fs-default);
+  color: $black;
+
+  --fs-100: 0.62rem;
+  --fs-200: 0.7225rem;
+  --fs-300: 0.85rem;
+  --fs-400: 1rem;
+  --fs-500: 1.2rem;
+  --fs-600: 1.44rem;
+  --fs-700: 1.728rem;
+  --fs-800: 2.07rem;
+  --fs-900: 2.48rem;
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-button {
+    width: 10px;
+  }
+
+  body {
+    position: relative;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: $white;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    align-items: center;
+  }
+
+  img, svg {
+    width: inherit;
+    height: auto;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+  }
+
+
+  .text-center {
+    text-align: center;
+  }
+
+  .intro {
+    max-width: 60%;
+    text-align: center;
+    margin: 0 auto;
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .form-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    margin: .5rem auto; 
+    padding: 0.5rem;
+
+    .form-input {
+        @include bg-opacity($g-100, 30%);
+        padding: 10px 12px; 
+        font-size: var(--fs-default);
+        font-weight: 500;
+        border: none; 
+        flex: auto;
+        caret-color: $g-800;
+        caret-shape: block;
+
+        &::placeholder, &::-moz-placeholder {
+            color: $g-400;
+            font-size: 18px;
+        }
+
+        &:active, &:focus {
+            border: none;
+        }
+    }
+
+    .search-btn {
+        min-height: inherit;
+        height: auto;
+    }
+  }
+}

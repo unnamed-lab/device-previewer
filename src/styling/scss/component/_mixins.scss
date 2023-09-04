@@ -1,0 +1,5 @@
+@use '../custom' as *;
+
+@mixin bg-opacity ($colour, $percentage) {
+    background-color: rgba($color: $colour, $alpha: $percentage);
+}
