@@ -7,33 +7,28 @@ import desktopImg from "../assets/desktop-icon.svg";
 import tabletImg from "../assets/tablet-icon.svg";
 import mobileImg from "../assets/mobile-icon.svg";
 
-
 const data = {
   name: "Unnamed Device Previewer",
-  description: `Elevate your website optimization process with our Device Screen
-            Previewer. Simply input your website's link, click "Preview," and
-            instantly visualize it. Effortlessly toggle between device modes to
-            see how your site adapts to various screen resolutions, ensuring a
-            seamless user experience across all devices.`,
-  preview: {
-    desktop: {
+  description: `Elevate your website optimization process with our Device Screen Previewer. Simply input your website's link, click "Preview," and instantly visualize it. Effortlessly toggle between device modes to see how your site adapts to various screen resolutions, ensuring a seamless user experience across all devices.`,
+  preview: [
+    {
       title: "desktop",
-      img: desktopImg
+      img: desktopImg,
     },
-    tablet: {
+    {
       title: "tablet",
-      img: tabletImg
+      img: tabletImg,
     },
-    mobile: {
+    {
       title: "mobile",
-      img: mobileImg
-    }
-  }
+      img: mobileImg,
+    },
+  ],
 };
 
-document.getElementsByTagName('title').textContent = data.name
+// document.getElementsByTagName('title').textContent = data.name
 
-ReactDOM.createRoot(document.getElementByTagName("nav")).render(
+ReactDOM.createRoot(document.querySelector(".navbar")).render(
   <React.StrictMode>
     <Nav name={data.name} />
   </React.StrictMode>
