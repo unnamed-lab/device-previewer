@@ -58,14 +58,22 @@ const Search = ({ name, info, onSearch, searchLink }) => {
           type="url"
           placeholder={searchLink}
           name=""
-          onDoubleClick={() => (sv.value = searchLink)}
+          onDoubleClick={() => {
+            console.log(sv.value)
+            sv.value = searchLink
+          }}
           required
         />
         <input
           className="btn search-btn"
           type="submit"
           value="Preview"
-          onClick={() => onSearch(sv.value)}
+          onClick={() => {
+            console.log(sv.value)
+            sv.value === ""
+              ? onSearch("Input website URL here...")
+              : onSearch(sv.value);
+          }}
         />
       </form>
     </section>
@@ -75,13 +83,12 @@ const Search = ({ name, info, onSearch, searchLink }) => {
 const Preview = ({ preview, linkInput }) => {
   const [listActive, setListActive] = useState(`${preview[0].title}-select`);
   const [canvas, setCanvas] = useState(listActive);
-  console.log(canvas);
-
   const navigation = () => {
     return preview.map((item, key) => {
       return (
         <Navigation
           key={key}
+          keyID={key}
           url={item.icon}
           title={item.title}
           getActive={listActive}
@@ -147,7 +154,7 @@ const Preview = ({ preview, linkInput }) => {
   );
 };
 
-const Navigation = ({ key, url, title, getActive, setActive, setCanvas }) => {
+const Navigation = ({ keyID, url, title, getActive, setActive, setCanvas }) => {
   const assignActive = (event) => {
     const cur = event.target.id;
     const active = document.querySelector(`#${getActive}`);
@@ -158,7 +165,7 @@ const Navigation = ({ key, url, title, getActive, setActive, setCanvas }) => {
   };
   return (
     <li
-      key={key}
+      key={keyID}
       id={`${title}-select`}
       className={"option"}
       onClick={assignActive}
@@ -174,14 +181,16 @@ const Navigation = ({ key, url, title, getActive, setActive, setCanvas }) => {
 const Canvas = ({ preview, url, type, index }) => {
   return (
     <div className="canvas">
-      <div className="screen">
         <img
           className={`${type}-mockup`}
           src={preview[index].img}
           alt={`${"Desktop"} Preview`}
         />
+      <div className={`screen ${type}`}>
         <div className={`display ${type}`}>
-          <iframe src={url}></iframe>
+          <div className={`edges ${type}`}>
+            <iframe src={url}></iframe>
+          </div>
         </div>
       </div>
     </div>

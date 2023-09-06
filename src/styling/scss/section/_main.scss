@@ -20,8 +20,8 @@
   justify-content: center;
   padding: 0 10vw;
   @include responsive(mediadown) {
-      padding: 0 1rem;
-    }
+    padding: 0 1rem;
+  }
 }
 
 .preview {
@@ -31,8 +31,12 @@
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  padding: 0 5vw;
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
+  padding-left: 5vw;
+  padding-right: 5vw;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 
   .navigation {
     position: relative;
@@ -67,9 +71,9 @@
         margin-right: 6px;
         padding: 5px 16px;
         transform: translateX(0%);
-        transition: all 500ms;
         text-transform: capitalize;
-        letter-spacing: .25px;
+        letter-spacing: 0.25px;
+        transition: all 200ms ease-in;
 
         @include responsive(mobile) {
           font-size: 14px;
@@ -79,16 +83,14 @@
         &:hover {
           &.active {
             @include bg-opacity($secondary, 60);
-            transition: all 500ms ease;
           }
           .icon {
             background-color: $g-900;
-            transition: all 500ms;
           }
         }
 
         &.active {
-          @include bg-opacity($secondary, 60);
+          @include bg-opacity($secondary, 70);
           border-radius: var(--border-radius);
 
           .icon {
@@ -118,61 +120,86 @@
   .canvas {
     position: relative;
     display: flex;
-    flex: 1;
-    width: 70vw;
     max-width: 70vw;
-    min-height: 50vh;
     margin-right: auto;
     margin-left: auto;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    background-color: $g-800;
+    transition: all 1s;
+    // background-color: $g-800;
+
+    img {
+      z-index: 5;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+
+      &.desktop-mockup {
+        width: 100%;
+      }
+      &.tablet-mockup {
+        width: 60%;
+      }
+      &.mobile-mockup {
+        width: 60%;
+      }
+    }
 
     .screen {
-      position: relative;
-      max-width: inherit;
-      width: 100%;
-      height: auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
+      z-index: 1;
+      position: absolute;
+      height: -webkit-fill-available;
+      width: -webkit-fill-available;
+      transition: all 2s;
+      // padding: 3% 11%;
 
-      img {
-        z-index: 1;
-        width: inherit;
-        height: auto;
-        margin-left: auto;
-        margin-right: auto;
+      .desktop {
+        padding-top: 2.7%;
+        padding-bottom: 6%;
+        padding-left: 11%;
+        padding-right: 11%;
+        overflow: hidden;
+        height: 90%;
+        max-height: 90%;
+      }
+
+      .tablet {
+        padding-top: 2.5%;
+        padding-bottom: 2%;
+        padding-left: 21%;
+        padding-right: 21%;
+        overflow: hidden;
+        height: 95%;
+        max-height: 95%;
+      }
+
+      .mobile {
+        padding-top: 2.9%;
+        padding-bottom: 5%;
+        padding-left: 23%;
+        padding-right: 23%;
+        overflow: hidden;
+        height: 96%;
+        max-height: 96%;
       }
 
       .display {
-        // position: relative;
-        position: absolute;
-        margin-left: auto;
-        margin-right: auto;
-        background-color: $g-100;
-        overflow: hidden;
-        top: 0;
-        margin-top: 24px;
+        position: relative;
+        
+        .edges {
+          position: relative;
+          background-color: $primary;
 
-        &.desktop {
-          width: 77%;
-          height: -webkit-fill-available;
-          max-height:460px;
+          &.desktop {
+            border-radius: 2px;
+          }
 
-          iframe {
-            z-index: -1;
-            position: absolute;
-            overflow:scroll;
-            top: 0;
-            left: 0;
-            width: 1024px;
-            height: 720px;
-            border: none;
-            transform-origin: top left;
-            transform: scale(calc(740 / 1028), calc(480 / 720));
-            //   transform: scale(0.6) translate(-50%, -50%);
+          &.tablet {
+            border-radius: 6px;
+          }
+
+          &.mobile {
+            border-radius: 12px;
           }
         }
       }
