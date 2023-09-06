@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import Nav from "./Nav.jsx";
+import Footer from "./Footer.jsx";
 import "../styling/css/index.css";
 import desktopIcon from "../assets/desktop-icon.svg";
 import tabletIcon from "../assets/tablet-icon.svg";
@@ -32,8 +33,6 @@ const data = {
   ],
 };
 
-// document.getElementsByTagName('title').textContent = data.name
-
 ReactDOM.createRoot(document.querySelector(".navbar")).render(
   <React.StrictMode>
     <Nav name={data.name} />
@@ -45,3 +44,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <App {...data} />
   </React.StrictMode>
 );
+
+ReactDOM.createRoot(document.getElementById("footer")).render(
+  <React.StrictMode>
+    <Footer />
+  </React.StrictMode>
+)

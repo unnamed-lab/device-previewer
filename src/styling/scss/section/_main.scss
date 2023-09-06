@@ -150,7 +150,6 @@
       position: absolute;
       height: -webkit-fill-available;
       width: -webkit-fill-available;
-      transition: all 2s;
       // padding: 3% 11%;
 
       .desktop {
@@ -189,7 +188,6 @@
         .edges {
           position: relative;
           display: flex;
-          background-color: $primary;
 
           &.desktop {
             border-radius: 2px;
@@ -215,4 +213,30 @@
       }
     }
   }
+}
+
+.footer {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    .credit {
+        font-size: var(--fs-500);
+        font-weight: 500;
+
+        span {
+            font-size: var(--fs-600);
+        }
+        
+        .footer-credit {
+            color: $primary;
+
+            &:hover {
+                transition: all 1s;
+                color: $secondary
+            }
+        }
+    }
 }

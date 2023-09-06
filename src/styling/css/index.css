@@ -20,10 +20,13 @@
   --fs-900: 2.48rem;
 }
 :root ::-webkit-scrollbar {
-  width: 12px;
+  width: 0px;
 }
 :root ::-webkit-scrollbar-button {
-  width: 10px;
+  width: 0px;
+}
+:root html {
+  scroll-behavior: smooth;
 }
 :root body {
   position: relative;
@@ -49,6 +52,10 @@
   align-items: center;
   justify-content: center;
   padding-top: 1rem;
+}
+:root a {
+  text-decoration: none;
+  font-weight: 600;
 }
 :root .text-center {
   text-align: center;
@@ -293,7 +300,6 @@
   position: absolute;
   height: -webkit-fill-available;
   width: -webkit-fill-available;
-  transition: all 2s;
 }
 .preview .canvas .screen .desktop {
   padding-top: 2.7%;
@@ -328,7 +334,6 @@
 .preview .canvas .screen .display .edges {
   position: relative;
   display: flex;
-  background-color: #002FFF;
 }
 .preview .canvas .screen .display .edges.desktop {
   border-radius: 2px;
@@ -346,6 +351,28 @@
   width: 100%;
   height: 100%;
   transform-origin: top left;
+}
+
+.footer {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.footer .credit {
+  font-size: var(--fs-500);
+  font-weight: 500;
+}
+.footer .credit span {
+  font-size: var(--fs-600);
+}
+.footer .credit .footer-credit {
+  color: #002FFF;
+}
+.footer .credit .footer-credit:hover {
+  transition: all 1s;
+  color: #008cff;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import Donate from "./Donate";
 import "../styling/css/index.css";
 
 const App = ({ name, description, preview }) => {
   const [searchLink, setSearchLink] = useState(
     sessionStorage.getItem("search") || "Input website URL here..."
   );
+
   React.useEffect(() => {
     sessionStorage.setItem("search", searchLink);
   }, [searchLink]);
@@ -38,6 +40,8 @@ const App = ({ name, description, preview }) => {
       />
 
       {onlyDesktop()}
+
+      <Donate />
     </>
   );
 };
@@ -82,6 +86,7 @@ const Search = ({ name, info, onSearch, searchLink }) => {
 
 const Preview = ({ preview, linkInput }) => {
   const [listActive, setListActive] = useState(`${preview[0].title}-select`);
+
   const [canvas, setCanvas] = useState(listActive);
   const navigation = () => {
     return preview.map((item, key) => {
@@ -189,7 +194,7 @@ const Canvas = ({ preview, url, type, index }) => {
       <div className={`screen ${type}`}>
         <div className={`display ${type}`}>
           <div className={`edges ${type}`}>
-            <iframe className="frame" src={url}></iframe>
+            <iframe className="frame" src={url === "Input website URL here..." ? "https://unnamed-profile.vercel.app" : url }></iframe>
           </div>
         </div>
       </div>

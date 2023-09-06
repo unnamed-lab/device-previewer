@@ -1,0 +1,39 @@
+@use "./custom" as *;
+
+@keyframes donate-glow {
+  0% {
+    background-color: #ffd900;
+  }
+
+  50% {
+    background-color: #ffae00;
+  }
+
+  100% {
+    background-color: #ffd900;
+  }
+}
+
+.donate {
+  cursor: pointer;
+  z-index: 99;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  right: 0;
+  top: 15%;
+  width: 15%;
+  height: 2.5rem;
+  padding: 8px 16px;
+  background-color: #ffd900;
+  text-align: right;
+  border-radius: 24px 0 0 24px;
+  transition: background-color 500ms ease, right 500ms ease;
+  animation: donate-glow 2s infinite ease-in-out;
+
+  .buy-me-a-coffee {
+    font-size: 1.15rem;
+    color: $black;
+    margin-left: auto;
+  }
+}
