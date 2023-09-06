@@ -189,7 +189,7 @@ const Canvas = ({ preview, url, type, index }) => {
       <div className={`screen ${type}`}>
         <div className={`display ${type}`}>
           <div className={`edges ${type}`}>
-            <iframe src={url}></iframe>
+            <iframe className="frame" src={url}></iframe>
           </div>
         </div>
       </div>
