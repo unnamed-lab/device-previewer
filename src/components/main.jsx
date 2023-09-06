@@ -3,9 +3,12 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import Nav from "./Nav.jsx";
 import "../styling/css/index.css";
-import desktopImg from "../assets/desktop-icon.svg";
-import tabletImg from "../assets/tablet-icon.svg";
-import mobileImg from "../assets/mobile-icon.svg";
+import desktopIcon from "../assets/desktop-icon.svg";
+import tabletIcon from "../assets/tablet-icon.svg";
+import mobileIcon from "../assets/mobile-icon.svg";
+import desktopImg from "../assets/laptop.png";
+import tabletImg from "../assets/tablet.png";
+import mobileImg from "../assets/mobile.png";
 
 const data = {
   name: "Unnamed Device Previewer",
@@ -13,15 +16,18 @@ const data = {
   preview: [
     {
       title: "desktop",
-      img: desktopImg,
+      icon: desktopIcon,
+      img: desktopImg
     },
     {
       title: "tablet",
-      img: tabletImg,
+      icon: tabletIcon,
+      img: tabletImg
     },
     {
       title: "mobile",
-      img: mobileImg,
+      icon: mobileIcon,
+      img: mobileImg
     },
   ],
 };

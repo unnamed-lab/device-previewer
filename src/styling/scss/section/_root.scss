@@ -35,6 +35,7 @@
     flex-direction: column;
     margin: 0;
     background-color: $white;
+    overflow: hidden;
   }
 
   nav {
@@ -67,6 +68,10 @@
     text-align: center;
     margin: 0 auto;
 
+    @include responsive(mediadown) {
+      max-width: 90%;
+    }
+
     h1 {
       margin-bottom: 0;
     }
@@ -80,12 +85,15 @@
     position: relative;
     display: flex;
     align-items: center;
-    width: 60%;
     margin: .5rem auto; 
     padding: 0.5rem;
+    @include responsive(desktop) {
+    max-width: 100%;
+    width: 60%;
+  }
 
     .form-input {
-        @include bg-opacity($g-100, 30%);
+        @include bg-opacity($g-100, 30);
         padding: 10px 12px; 
         font-size: var(--fs-default);
         font-weight: 500;
