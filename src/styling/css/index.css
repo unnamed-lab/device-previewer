@@ -285,6 +285,7 @@
   height: auto;
   margin-left: auto;
   margin-right: auto;
+  pointer-events: none;
 }
 .preview .canvas img.desktop-mockup {
   width: 100%;
